@@ -1,1 +1,1 @@
-# 30daysofDSA
+# 30 days of DSA
