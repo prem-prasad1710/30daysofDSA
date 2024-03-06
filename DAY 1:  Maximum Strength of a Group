@@ -1,0 +1,22 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+const maxStrength = nums => {
+  if (nums.length === 1) return nums[0];
+  nums = nums.sort((a, b) => a - b).filter(n => n !== 0);
+  if (!nums.length) return 0;
+  if (nums.length === 1) return nums[0] > 0 ? nums[0] : 0;
+  let totalNegative = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if(nums[i] < 0) totalNegative++;
+    if(nums[i] > 0) break;
+  }
+  if (totalNegative) {
+    const lastNegative = nums.findLastIndex(n => n < 0);
+    if (totalNegative % 2 !== 0) {
+      nums.splice(lastNegative, 1);
+    }
+  }
+  return nums.reduce((a, b) => a * b, 1);
+};
