@@ -1,0 +1,14 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var thirdMax = function(nums) {
+     nums.sort( (a,b) => b-a);
+    let numSet = new Set(nums);
+    if(numSet.size>=3){
+         return Array.from(numSet)[2];
+    }
+    else{
+        return Math.max(...numSet);
+    }
+};
