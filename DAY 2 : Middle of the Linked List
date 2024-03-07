@@ -1,0 +1,10 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var getConcatenation = function(nums) {
+    let ans = [];
+    ans = nums.slice();
+    ans = ans.concat(nums);
+     return ans;
+};
