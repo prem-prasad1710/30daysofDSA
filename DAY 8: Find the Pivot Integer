@@ -1,0 +1,17 @@
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var pivotInteger = function(n) {
+    let total = n * (n + 1) / 2;
+        let sumofi = 0;
+
+        for (let i = 1; i <= n; i++) {
+            if (sumofi === total - sumofi - i) {
+                return i;
+            }
+            sumofi += i;
+        }
+
+        return -1;
+};
