@@ -1,0 +1,31 @@
+/**
+ * @param {number[]} nums
+ * @param {number} goal
+ * @return {number}
+ */
+/**
+ * @param {number[]} nums
+ * @param {number} goal
+ * @return {number}
+ */
+var numSubarraysWithSum = function(nums, goal) {
+
+// soltion 2 using sliding window
+    const atmostSubArray=(arr,k)=>{
+        let i,j,sum,count =0;
+         if(k<0)
+            return 0;
+        while(j<arr.length){
+            sum=sum+arr[j];
+
+            while(sum>k){
+                    sum=sum-arr[i];
+                    i++;
+                }
+                count=count+j-i+1;
+                j++;
+        }
+        return count;
+    }
+    return atmostSubArray(nums,goal)-atmostSubArray(nums,goal-1)
+};
