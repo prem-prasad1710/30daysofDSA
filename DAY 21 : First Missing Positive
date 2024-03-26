@@ -1,0 +1,16 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var firstMissingPositive = function (nums) {
+    let map = new Map()
+    let key = 1
+    for (let i = 0; i < nums.length; i++) {
+        map.set(nums[i], (map.has(nums[i]) || 0) + 1)
+    }
+
+    while (map.has(key)) {
+        key = key + 1
+    }
+    return key
+};
