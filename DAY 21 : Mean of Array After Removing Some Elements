@@ -1,0 +1,10 @@
+/**
+ * @param {number[]} arr
+ * @return {number}
+ */
+var trimMean = function(arr) {
+arr.sort((a, b) => a - b)
+let len = arr.length * 0.05, sum = 0;
+for (let i = len; i < arr.length - len; i++) sum += arr[i];
+return sum / (arr.length - (len * 2));
+};
