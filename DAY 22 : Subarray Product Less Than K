@@ -1,0 +1,20 @@
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var numSubarrayProductLessThanK = function(nums, k) {
+if(k === 0) return 0
+    let left = 0
+    let prodResult = 1
+    let ans = 0
+    for(let right = 0; right < nums.length; right++){
+        prodResult *= nums[right]
+        while(prodResult >= k && left <= right){
+            prodResult /= nums[left]
+            left++
+        }
+        ans += right - left + 1
+    }
+    return ans
+};
